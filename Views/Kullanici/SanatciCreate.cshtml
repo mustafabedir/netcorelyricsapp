@@ -1,0 +1,19 @@
+@model Sanatci
+@{
+    Layout="~/Views/Shared/_Kullanici.cshtml";
+}
+<div class="container">
+    <h2>Create Sanatci</h2>
+    <br />
+
+    <form asp-controller="Admin" asp-action="SanatciCreate" method="post">
+        <div class="form-group">
+            <label asp-for="sanatciAd">Sanatci Adı</label>
+            <input asp-for="sanatciAd" class="form-control" >
+        </div>
+
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>

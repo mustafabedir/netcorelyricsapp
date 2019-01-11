@@ -1,0 +1,13 @@
+@model Yorum
+@{
+    Layout="~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>
+    <b>  @Model.icerik</b> isimli kaydı silmek istiyor musunuz?
+</h2>
+
+<form asp-controller="Admin" asp-action="YorumDelete" method="post">
+    <input type="hidden" asp-for="yorumID" />
+    <button type="submit" class="btn btn-primary">Delete</button>
+</form>

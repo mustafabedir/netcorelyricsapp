@@ -1,0 +1,24 @@
+@model IEnumerable<Muzik>
+@{
+    Layout = null;
+}
+<html>
+    <head>
+        <title>Index</title>
+        <link href="~/lib/css/bootstrap.css" rel = "stylesheet" />
+    </head>
+    <body>
+        @foreach (Muzik muzik in Model)
+        {
+            <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">@muzik.muzikAd</h5>
+            <p class="card-text">@muzik.sozler</p>
+            <a href="/Home/Login" class="card-link">Yorum Yap</a>
+            </div>
+            </div>
+        }
+
+        <script src="~/lib/js/bootstrap.js"></script>
+    </body>
+</html>

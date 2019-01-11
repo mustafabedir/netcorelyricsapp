@@ -1,0 +1,56 @@
+@model IEnumerable<Etiket>
+@{
+    Layout="~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="container">
+    <h2>Etiket List</h2>
+    <hr />
+    <div>
+        <a class="btn btn-primary" href="/Admin/EtiketCreate">Create</a>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col">
+            @if(Model.Count()>0)
+            {
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ad</th>
+                            <th>Muzik</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Etiket etiket in Model)
+                        {
+                            <tr>
+                                <td>@etiket.etiketID</td>
+                                <td>@etiket.etiketAd</td>
+                                <td>@etiket.muzikID</td>
+                                
+                                <td>
+                                    <a class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="EtiketEdit" asp-route-id="@etiket.etiketID">
+                                        Details
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" asp-controller="Admin" asp-action="EtiketDelete" asp-route-id="@etiket.etiketID">
+                                        Delete
+                                    </a>
+                                    
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-danger">
+                    Kullanici Yok
+                </div>
+            }
+        </div>
+    </div>
+</div>

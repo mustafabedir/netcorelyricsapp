@@ -1,0 +1,59 @@
+@model IEnumerable<Muzik>
+@{
+    Layout="~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="container">
+    <h2>Muzik List</h2>
+    <hr />
+    <div>
+        <a class="btn btn-primary" href="/Admin/MuzikCreate">Create</a>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col">
+            @if(Model.Count()>0)
+            {
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ad</th>
+                            <th>Sözler</th>
+                            <th>Sanatci</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Muzik muzik in Model)
+                        {
+                            <tr>
+                                <td>@muzik.muzikID</td>
+                                <td>@muzik.muzikAd</td>
+                                <td>@muzik.sozler</td>
+                                <td>@muzik.sanatciID</td>
+                                
+                                
+                                <td>
+                                    <a class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="MuzikEdit" asp-route-id="@muzik.muzikID">
+                                        Details
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" asp-controller="Admin" asp-action="MuzikDelete" asp-route-id="@muzik.muzikID">
+                                        Delete
+                                    </a>
+                                    
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-danger">
+                    Muzik Yok
+                </div>
+            }
+        </div>
+    </div>
+</div>

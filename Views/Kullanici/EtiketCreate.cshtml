@@ -1,0 +1,24 @@
+@model Etiket
+@{
+    Layout="~/Views/Shared/_Kullanici.cshtml";
+}
+<div class="container">
+    <h2>Create Etiket</h2>
+    <br />
+
+    <form asp-controller="Admin" asp-action="EtiketCreate" method="post">
+        <div class="form-group">
+            <label asp-for="etiketAd">Ad</label>
+            <input asp-for="etiketAd" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label asp-for="muzikID">Muzik</label>
+            <select class="form-control" asp-for="muzikID" asp-items="ViewBag.Muziks">
+                <option disabled selected value="">Select Muzik</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>

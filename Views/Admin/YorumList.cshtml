@@ -1,0 +1,58 @@
+@model IEnumerable<Yorum>
+@{
+    Layout="~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="container">
+    <h2>Yorum List</h2>
+    <hr />
+    <div>
+        <a class="btn btn-primary" href="/Admin/YorumCreate">Create</a>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col">
+            @if(Model.Count()>0)
+            {
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Icerik</th>
+                            <th>Muzik</th>
+                            <th>Kullanici</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Yorum yorum in Model)
+                        {
+                            <tr>
+                                <td>@yorum.muzikID</td>
+                                <td>@yorum.icerik</td>
+                                <td>@yorum.muzikID</td>
+                                <td>@yorum.kullaniciID</td>
+                                
+                                <td>
+                                    <a class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="YorumEdit" asp-route-id="@yorum.yorumID">
+                                        Details
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" asp-controller="Admin" asp-action="YorumDelete" asp-route-id="@yorum.yorumID">
+                                        Delete
+                                    </a>
+                                    
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-danger">
+                    Yorum Yok
+                </div>
+            }
+        </div>
+    </div>
+</div>

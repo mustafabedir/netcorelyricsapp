@@ -1,0 +1,28 @@
+@model Muzik
+@{
+    Layout="~/Views/Shared/_Kullanici.cshtml";
+}
+<div class="container">
+    <h2>Create Muzik</h2>
+    <br />
+
+    <form asp-controller="Admin" asp-action="MuzikCreate" method="post">
+        <div class="form-group">
+            <label asp-for="muzikAd">Ad</label>
+            <input asp-for="muzikAd" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label asp-for="sozler">Sozler</label>
+            <input asp-for="sozler" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label asp-for="sanatciID">Sanatci</label>
+            <select class="form-control" asp-for="sanatciID" asp-items="ViewBag.Sanatcis">
+                <option disabled selected value="">Select Sanatci</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>

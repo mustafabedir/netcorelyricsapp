@@ -1,0 +1,62 @@
+@model IEnumerable<Kullanici>
+@{
+    Layout="~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="container">
+    <h2>Kullanici List</h2>
+    <hr />
+    <div>
+        <a class="btn btn-primary" href="/Admin/KullaniciCreate">Create</a>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col">
+            @if(Model.Count()>0)
+            {
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Ad</th>
+                            <th>Soyad</th>
+                            <th>Mail</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Kullanici kullanici in Model)
+                        {
+                            <tr>
+                                <td>@kullanici.kullaniciID</td>
+                                <td>@kullanici.username</td>
+                                <td>@kullanici.password</td>
+                                <td>@kullanici.ad</td>
+                                <td>@kullanici.soyad</td>
+                                <td>@kullanici.mail</td>
+                                
+                                <td>
+                                    <a class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="KullaniciEdit" asp-route-id="@kullanici.kullaniciID">
+                                        Details
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" asp-controller="Admin" asp-action="KullaniciDelete" asp-route-id="@kullanici.kullaniciID">
+                                        Delete
+                                    </a>
+                                    
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-danger">
+                    Kullanici Yok
+                </div>
+            }
+        </div>
+    </div>
+</div>

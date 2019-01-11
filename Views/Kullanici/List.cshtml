@@ -1,0 +1,49 @@
+@model Kullanici
+@{
+    Layout="~/Views/Shared/_Kullanici.cshtml";
+}
+
+<div class="container">
+    <h2>Kullanici Bilgilerim</h2>
+    <hr />
+    
+    <hr />
+    <div class="row">
+        <div class="col">
+            
+                <table class="table table-bordered table-striped">
+                    <input type="hidden" asp-for="kullaniciID" />
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Ad</th>
+                            <th>Soyad</th>
+                            <th>Mail</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         
+                            <tr>
+                               
+                                <td>@Model.kullaniciID</td>
+                                <td>@Model.username</td>
+                                <td>@Model.password</td>
+                                <td>@Model.ad</td>
+                                <td>@Model.soyad</td>
+                                <td>@Model.mail</td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" asp-controller="Kullanici" asp-action="Edit" asp-route-id="@Model.kullaniciID">
+                                        Details
+                                    </a>
+                                </td>
+                            </tr>
+                               
+                    </tbody>
+                </table>
+            
+        </div>
+    </div>
+</div>

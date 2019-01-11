@@ -1,0 +1,13 @@
+@model Muzik
+@{
+    Layout="~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>
+    <b>  @Model.muzikAd</b> isimli kaydı silmek istiyor musunuz?
+</h2>
+
+<form asp-controller="Admin" asp-action="MuzikDelete" method="post">
+    <input type="hidden" asp-for="muzikID" />
+    <button type="submit" class="btn btn-primary">Delete</button>
+</form>

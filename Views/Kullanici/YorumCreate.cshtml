@@ -1,0 +1,30 @@
+@model Yorum
+@{
+    Layout="~/Views/Shared/_Kullanici.cshtml";
+}
+<div class="container">
+    <h2>Create Yorum</h2>
+    <br />
+
+    <form asp-controller="Kullanici" asp-action="YorumCreate" method="post">
+        <div class="form-group">
+            <label asp-for="icerik">Icerik</label>
+            <input asp-for="icerik" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label asp-for="muzikID">Muzik</label>
+            <select class="form-control" asp-for="muzikID" asp-items="ViewBag.Muziks">
+                <option disabled selected value="">Select Muzik</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="kullaniciID">Kullanici</label>
+            <select class="form-control" asp-for="kullaniciID" asp-items="ViewBag.Kullanicis">
+                <option disabled selected value="">Select Kullanici</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
